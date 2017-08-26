@@ -1,0 +1,8 @@
+loadModel(Modelica); 
+
+loadFile("..\HandyBase.mo"); 
+loadFile("..\HandyUnEquitableBase.mo"); 
+loadFile("..\HandyUnEq3.mo"); 
+
+simulate(HandyUnEq3, stopTime=400);
+plot({commoners_, elites_, nature_, wealth_, carryingCap_, carryingCapMax_});

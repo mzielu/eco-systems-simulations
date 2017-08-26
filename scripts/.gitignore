@@ -1,0 +1,10 @@
+*.c
+*.o
+*.exe
+*.libs
+*.log
+*.h
+*.makefile
+*.json
+*.mat
+*.xml

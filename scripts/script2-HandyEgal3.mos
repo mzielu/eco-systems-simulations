@@ -1,0 +1,9 @@
+loadModel(Modelica); 
+
+loadFile("..\HandyBase.mo"); 
+loadFile("..\HandyEgalitarianBase.mo"); 
+loadFile("..\HandyEgal3.mo"); 
+
+simulate(HandyEgal3, stopTime=400);
+plot({commoners_, elites_, nature_, wealth_, carryingCap_, carryingCapMax_});
+

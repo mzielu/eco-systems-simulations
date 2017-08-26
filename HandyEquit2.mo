@@ -1,9 +1,11 @@
 model HandyEquit2 extends HandyEquitableBase;
 
-  initial equation
+initial equation
+
     elites = 25;
     
-  equation
+equation
+
     depletFactor = 2.64 * depletFactorEq;
 
     nature_ = nature * 80000 / 100;

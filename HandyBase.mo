@@ -1,5 +1,5 @@
 partial model HandyBase
-    // All parameters, Egalitarian values
+    //EGALITARIAN values
     parameter Real birthRComm = 0.03 "Birth Rate of Commoners. Number of people/year";
     parameter Real birthRElites = 0.03 "Birth Rate of Elites. Number of people/year";
     parameter Real natureRegen = 0.01 "Nature's regeneration factor. 1/ecoDollars*year";
@@ -24,10 +24,11 @@ partial model HandyBase
     Real carryingCap "Carrying Capacity. Number of people";
     Real carryingCapMax "Maximum Carrying Capacity. Number of people";
     Real totalPopulation "Total population: elites and commoners. Number of people";
-    // Helper variables for graphing purposes
-  Real nature_,wealth_,carryingCap_,carryingCapMax_,commoners_,elites_,totalPopulation_;
+
+    Real nature_,wealth_,carryingCap_,carryingCapMax_,commoners_,elites_,totalPopulation_;
+  
 equation
-    // Main equations
+
     der(commoners) = birthRComm * commoners - deathRComm * commoners;
     der(elites) = birthRElites * elites - deathRElites * elites;
     der(nature) = natureRegen * nature * (natureCap - nature) - depletFactor * commoners * nature;
@@ -41,7 +42,10 @@ equation
     carryingCap = natureRegen / depletFactor * (natureCap - subsSal * eta / depletFactor);
     carryingCapMax = natureRegen / (eta * subsSal) * (natureCap / 2) ^ 2;
     totalPopulation = elites + commoners;
-  initial equation
+    
+initial equation
+
     nature = natureCap;
     wealth = 0;
+    
 end HandyBase;
